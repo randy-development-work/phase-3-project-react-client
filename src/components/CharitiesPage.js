@@ -1,14 +1,15 @@
 import Home from "./Home";
-import React, {useState,useEffect} from "react-router-dom";
+import React, {useState,useEffect} from "react";
 import { Fragment } from "react";
 import EachCharity from "./EachCharity";
 import AddDonation from "./AddDonation";
+import { Route, Routes, Outlet } from "react-router-dom";
 
 function CharitiesPage(){
-    const [charities,setCharities]= useState([]);
+    const [charities, setCharities]= useState([]);
 
 useEffect(() => {
-        fetch("http://localhost:9292/test")
+        fetch("http://localhost:9294/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
@@ -16,7 +17,7 @@ useEffect(() => {
             return setCharities(() => charitiesData)})
     }, [])
 
-    oneCharity = charities.map((charity) => {
+    const onecharity = charities.map((charity) => {
         return (
             <EachCharity key={charity.id} charity={charity}/>
         )
@@ -24,6 +25,7 @@ useEffect(() => {
 
     return (
         <Fragment>
+            
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/allcharities" element={
@@ -35,7 +37,7 @@ useEffect(() => {
                             alignItems: 'center' 
                             }}>
                             <div className="row">
-                                {oneCharity}
+                                {onecharity}
                             </div>
                             
                         </div>
