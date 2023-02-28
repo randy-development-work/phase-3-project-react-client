@@ -8,9 +8,6 @@ function NavBar() {
 
     return (
         <Fragment>
-        
-
-
         <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/">DonateIt</Navbar.Brand>
