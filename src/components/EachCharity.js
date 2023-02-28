@@ -3,7 +3,7 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
 function EachCharity({charity}) {
     // destructuring the charity prop for easier access
-    const {id, name, image, description, location} = charity
+    const {id, name, image, location, description, year_established} = charity
 
     return (
         <Card className='card-style'>
@@ -24,14 +24,14 @@ function EachCharity({charity}) {
                 {description}
             </Card.Description>
             <br />
-            {/* <Card.Description>
-                {date} | {time}
+            <Card.Description>
+                {/* {date} | {time} */}
                 <br />
                 <p className='money-bill'>
-                <Icon name="money bill alternate"/>
-                {price}
+                <Icon name="calendar times"/>
+                <p>Year Established: </p>{year_established}
                 </p>
-            </Card.Description> */}
+            </Card.Description>
             </Card.Content>
             {/* <Card.Content extra>
             <a>

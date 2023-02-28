@@ -9,7 +9,7 @@ function CharitiesPage(){
     const [charities, setCharities]= useState([]);
 
 useEffect(() => {
-        fetch("http://localhost:9294/charities")
+        fetch("http://localhost:9298/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
@@ -25,7 +25,7 @@ useEffect(() => {
 
     return (
         <Fragment>
-            
+
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/allcharities" element={
