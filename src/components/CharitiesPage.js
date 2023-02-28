@@ -1,6 +1,7 @@
-import Home from "../Home";
+import Home from "./Home";
 import React, {useState,useEffect} from "react-router-dom";
 import { Fragment } from "react";
+import EachCharity from "./EachCharity";
 
 function CharitiesPage(){
     const [charities,setCharities]= useState([]);

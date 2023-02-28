@@ -50,3 +50,5 @@ function EachCharity({charity}) {
         </Card>
     )
 }
+
+export default EachCharity

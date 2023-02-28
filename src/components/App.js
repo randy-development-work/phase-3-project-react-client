@@ -1,13 +1,14 @@
 import '../App.css';
 import React from 'react'
 import Home from './Home';
+import CharitiesPage from './CharitiesPage';
 
 
 function App() {
     
   return (
     <div>
-      <Home />         
+      <CharitiesPage />         
     </div>
   );
 }
