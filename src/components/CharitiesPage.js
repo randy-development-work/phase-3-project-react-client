@@ -2,6 +2,7 @@ import Home from "./Home";
 import React, {useState,useEffect} from "react-router-dom";
 import { Fragment } from "react";
 import EachCharity from "./EachCharity";
+import AddDonation from "./AddDonation";
 
 function CharitiesPage(){
     const [charities,setCharities]= useState([]);
@@ -42,6 +43,7 @@ useEffect(() => {
                 }>
 
                 </Route>
+                <Route path="adddonation/:donationID" element={<AddDonation />} />
 
 
             </Routes>

@@ -8,7 +8,7 @@ function EachCharity({charity}) {
     return (
         <Card className='card-style'>
             {/* <Image src={image} wrapped ui={true} /> */}
-            <div className="rounded-top" style={{
+            <Link to={`adddonation/${id}`} className="rounded-top" style={{
                 height: 240,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
@@ -16,7 +16,7 @@ function EachCharity({charity}) {
                 backgroundImage: `url(${image})`
             }}
             
-            ></div>
+            ></Link>
             <Card.Content>
             <Card.Header>{name}</Card.Header>
             <Card.Meta>{location}</Card.Meta>
