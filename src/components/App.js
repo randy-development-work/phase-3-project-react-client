@@ -14,7 +14,7 @@ function App() {
     <NavBar />
     <Routes>
        <Route exact path = "/" element = {<Home/>} />
-       <Route exact path = "CharitiesPage" element = {<CharitiesPage/>} />
+       <Route exact path = "charitiesPage" element = {<CharitiesPage/>} />
     </Routes>
   </div>         
     </div>
