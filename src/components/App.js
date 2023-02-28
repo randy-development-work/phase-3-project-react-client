@@ -1,10 +1,10 @@
 import '../App.css';
-import React from 'react'
+import React from 'react';
 import Home from './Home';
 import CharitiesPage from './CharitiesPage';
 import {Routes,Route,} from 'react-router-dom';
 import NavBar from './NavBar';
-
+import CharitiesPage from './CharitiesPage';
 
 function App() {
     
@@ -17,6 +17,8 @@ function App() {
        <Route exact path = "charitiesPage" element = {<CharitiesPage/>} />
     </Routes>
   </div>         
+      <CharitiesPage />         
+
     </div>
   );
 }
