@@ -1,11 +1,6 @@
+import React from "react";
 function AddDonation() {
-
-    return (
-        <form>
-            
-        </form>
-    )
-
+  
 }
 
 export default AddDonation;
