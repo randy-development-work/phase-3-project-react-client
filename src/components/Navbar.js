@@ -16,8 +16,8 @@ function NavBar() {
           <Navbar.Brand href="/">DonateIt</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/eventsavailable">Charities</Nav.Link>
-            <Nav.Link href="/addevent">View Donations</Nav.Link>
+            <Nav.Link href="/allcharities">Charities</Nav.Link>
+            <Nav.Link href="/donations">View Donations</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

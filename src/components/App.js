@@ -1,8 +1,6 @@
 import '../App.css';
 import React from 'react'
-import Home from './Home';
 import CharitiesPage from './CharitiesPage';
-
 
 function App() {
     
@@ -13,4 +11,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
