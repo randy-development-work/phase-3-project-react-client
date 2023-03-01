@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import EachCharity from "./EachCharity";
 import AddDonation from "./AddDonation";
 import { Route, Routes, Outlet } from "react-router-dom";
+import { Form, Button, Row, Col } from 'react-bootstrap';
 
 function CharitiesPage(){
     const [charities, setCharities]= useState([]);
@@ -30,6 +31,34 @@ useEffect(() => {
         )
     })
 
+function handleFormSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = {
+          name: form.elements.formBasicName.value,
+          image: form.elements.formBasicImage.value,
+          location: form.elements.formBasicLocation.value,
+          description: form.elements.formBasicDescription.value,
+          year_established: form.elements.formBasicYear.value
+        };
+        fetch("http://localhost:3000/charities", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          setCharities([...charities, data]);
+          form.reset();
+        })
+        .catch(error => console.error(error));
+
+        console.log(formData)
+    }
+      
+
     return (
         <Fragment>
 
@@ -50,6 +79,43 @@ useEffect(() => {
                           </form>
                            </div>
                                 {onecharity}
+                                <div>
+                                <div>
+                                    <h1 style={{padding:'10px  20px ',paddingLeft: '40%'}}>
+                                        Add Your Charity
+                                    </h1>
+                                    <Form onSubmit={handleFormSubmit} >
+                                                <Form.Group controlId="formBasicName">
+                                                    <Form.Label>Name</Form.Label>
+                                                    <Form.Control type="text" placeholder="Enter charity name"  />
+                                                </Form.Group>
+                                                <Form.Group controlId="formBasicDescription">
+                                                        <Form.Label>Description</Form.Label>
+                                                        <Form.Control type="text" placeholder="Enter Description" />
+                                                 </Form.Group>
+                                                <Form.Group controlId="formBasicImage">
+                                                         <Form.Label>Image Link</Form.Label>
+                                                         <Form.Control type="text" placeholder="Enter image"  />
+                                                 </Form.Group>
+                                                 <Form.Group controlId="formBasicYear">
+                                                         <Form.Label>Year Established</Form.Label>
+                                                         <Form.Control type="text" placeholder="Year Established" />
+                                                 </Form.Group>
+                                                 <Form.Group controlId="formBasicLocation">
+                                                         <Form.Label>Location</Form.Label>
+                                                         <Form.Control type="text" placeholder="Enter location" />
+                                                 </Form.Group>
+                                                 <Row>
+                                                    <Col className="text-center">
+                                                        <Button variant="primary" type="submit">
+                                                            Submit
+                                                        </Button>
+                                                    </Col>
+                                                </Row>
+                                           </Form>
+                                    </div>
+                            </div>
+                                
                             </div>
                             
                             
@@ -58,7 +124,7 @@ useEffect(() => {
                 }>
 
                 </Route>
-                <Route path="adddonation/:donationID" element={<AddDonation />} />
+                <Route path="/charities/:id/donate" element={<AddDonation />} />
 
 
             </Routes>
