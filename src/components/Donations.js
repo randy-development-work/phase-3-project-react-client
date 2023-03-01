@@ -65,7 +65,7 @@ function Donations() {
           </Card.Subtitle>
           <Card.Text>Quantity: {donation.quantity}</Card.Text>
           <Button variant="danger" onClick={() => handleDelete(donation.id)} style = {{marginRight: '100px'}}>Delete</Button>
-          <Button variant="success"  onClick={() => handleDelete(donation.id)}>Edit</Button>
+          <Button variant="success" >Edit</Button>
         </Card.Body>
       </Card>
     </Col>
