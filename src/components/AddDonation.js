@@ -20,6 +20,7 @@ function handleFormSubmit(event) {
     const form = event.target;
     const formData = {
       // id: form.elements.formBasicId.value,
+      charity_id: id,
       category: form.elements.formCategory.value,
       name: form.elements.formBasicName.value,
       image: form.elements.formBasicImage.value,
