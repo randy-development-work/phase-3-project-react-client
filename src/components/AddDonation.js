@@ -6,7 +6,7 @@ const categoryOptions = [
   { value: 'Clothing', label: 'Clothing' },
   { value: 'Electronics', label: 'Electronics' },
   { value: 'Food', label: 'Food' },
-  { value: 'household items', label: 'Household Items' },
+  { value: 'Household Items', label: 'Household Items' },
 ];
 
 const AddDonation = ({charitydata}) => {
@@ -20,6 +20,7 @@ function handleFormSubmit(event) {
     const form = event.target;
     const formData = {
       // id: form.elements.formBasicId.value,
+      charity_id: id,
       category: form.elements.formCategory.value,
       name: form.elements.formBasicName.value,
       image: form.elements.formBasicImage.value,
