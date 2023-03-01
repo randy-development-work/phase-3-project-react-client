@@ -96,15 +96,19 @@ function handleCategoryChange(e){
             <Form.Control type="text" placeholder="Donation Id"  />
        </Form.Group> */}
       <Form.Group controlId="formBasicName">
+      <Form.Label>Donation</Form.Label>
             <Form.Control type="text" placeholder="Donation"  style={{width:'60rem', marginTop: '10px'}} />
        </Form.Group>
        <Form.Group controlId="formBasicImage">
+       <Form.Label>Image</Form.Label>
             <Form.Control type="text" placeholder="Donation Image" style={{width:'60rem',marginTop: '10px'}} />
        </Form.Group>
        <Form.Group controlId="formBasicDescription">
+       <Form.Label>Description</Form.Label>
             <Form.Control type="text" placeholder="Donation Description" style={{width:'60rem',marginTop: '10px'}} />
        </Form.Group>
        <Form.Group controlId="formBasicQuantity">
+       <Form.Label>Quantity</Form.Label>
             <Form.Control type="text" placeholder="Donation Quantity"  style={{width:'60rem',marginTop: '10px'}}/>
        </Form.Group>
 
