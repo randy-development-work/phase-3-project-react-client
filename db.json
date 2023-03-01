@@ -80,7 +80,17 @@
       "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "description": "warm jackets",
       "quantity": "20",
-      "id": 1
+      "id": 1,
+      "charity_id": 1
+    },
+    {
+      "category": "household items",
+      "name": "Table",
+      "image": "https://images.unsplash.com/photo-1448697138198-9aa6d0d84bf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dGFibGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "description": "A table made in italy",
+      "quantity": "2",
+      "id": 2,
+      "charity_id": 1
     },
     {
       "category": "Electronics",
@@ -88,30 +98,39 @@
       "image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
       "description": "ah hp laptop",
       "quantity": "1",
-      "id": 2
+      "id": 2,
+      "charity_id": 2
     },
     {
-      "category": "household items",
-      "name": "dishes",
-      "image": "https://images.unsplash.com/photo-1604762433261-a046add6fc11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "description": "kitchen items",
-      "quantity": "15",
-      "id": 3
+      "category": "Electronics",
+      "name": "My Space",
+      "image": "https://images.unsplash.com/photo-1622561029875-d966f88f5578?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+      "description": "Always here",
+      "quantity": "10",
+      "id": 3,
+      "charity_id": 4
     },
-    {
       "category": "Food",
       "name": "vegetables",
       "image": "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
       "description": "fresh vegetables",
       "quantity": "20kg",
       "id": 5
+      "category": "Clothing",
+      "name": "Trousers",
+      "image": "https://images.unsplash.com/photo-1573288881762-6ec87577a176?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmVlZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+      "description": "We are here for you",
+      "quantity": "20",
+      "id": 4,
+      "charity_id": 3
     },
     {
-      "category": "Clothing",
-      "name": "duvtes",
-      "image": "https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
-      "description": "warm bed",
-      "quantity": "20",
+      "charity_id": "9",
+      "category": "Electronics",
+      "name": "cbb",
+      "image": "xn",
+      "description": "nxb",
+      "quantity": "3",
       "id": 6
     },
     {

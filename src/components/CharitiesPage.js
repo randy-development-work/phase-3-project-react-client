@@ -64,8 +64,7 @@ function handleFormSubmit(event) {
         <Fragment>
 
             <Routes>
-                <Route path="/" element={<Home />} />
-    
+                <Route path="/home" element={<Home />} />
                 <Route path="/allcharities" element={
                     <Fragment>
                         <div className="ui three column grid container" style={{
@@ -126,7 +125,7 @@ function handleFormSubmit(event) {
                 }>
 
                 </Route>
-                <Route path="/charities/:id/donate" element={<AddDonation charitydata = {charities} />} />
+                <Route path="/charities/:charityId/donate" element={<AddDonation charitydata = {charities} />} />
                 <Route path="/charities/:id/viewdonations" element={<Donations charitydata = {charities} />} />
 
 

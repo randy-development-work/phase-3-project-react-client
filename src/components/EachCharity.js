@@ -28,7 +28,7 @@ function EachCharity({charity}) {
                 {/* {date} | {time} */}
                 <br />
                 <p className='money-bill'>
-                <Icon name="calendar times"/>
+                {/* <Icon name="calendar times"/> */}
                 <p>Year Established: </p>{year_established}
                 </p>
             </Card.Description>
