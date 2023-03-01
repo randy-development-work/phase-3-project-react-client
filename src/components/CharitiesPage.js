@@ -5,6 +5,7 @@ import EachCharity from "./EachCharity";
 import AddDonation from "./AddDonation";
 import { Route, Routes, Outlet } from "react-router-dom";
 import { Form, Button, Row, Col } from 'react-bootstrap';
+import Donations from "./Donations";
 
 function CharitiesPage(){
     const [charities, setCharities]= useState([]);
@@ -125,6 +126,7 @@ function handleFormSubmit(event) {
 
                 </Route>
                 <Route path="/charities/:id/donate" element={<AddDonation charitydata = {charities} />} />
+                <Route path="/charities/:id/viewdonations" element={<Donations charitydata = {charities} />} />
 
 
             </Routes>

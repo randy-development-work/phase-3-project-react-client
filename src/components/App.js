@@ -4,6 +4,7 @@ import Home from './Home';
 import CharitiesPage from './CharitiesPage';
 import {Routes,Route,} from 'react-router-dom';
 import NavBar from './Navbar';
+import Donations from './Donations';
 function App() {
     
   return (
@@ -15,7 +16,8 @@ function App() {
        <Route exact path = "CharitiesPage" element = {<CharitiesPage/>} />
     </Routes>
   </div>             
-      <CharitiesPage />         
+      <CharitiesPage />  
+      <Donations />       
     </div>
   );
 }
