@@ -14,10 +14,10 @@ function App() {
     <Routes>
        <Route exact path = "/" element = {<Home/>} />
        <Route exact path = "CharitiesPage" element = {<CharitiesPage/>} />
+       <Route exact path = "Donations" element = {<Donations/>} />
     </Routes>
   </div>             
-      <CharitiesPage />  
-      <Donations />       
+      <CharitiesPage />       
     </div>
   );
 }
