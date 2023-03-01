@@ -124,7 +124,7 @@ function handleFormSubmit(event) {
                 }>
 
                 </Route>
-                <Route path="/charities/:id/donate" element={<AddDonation />} />
+                <Route path="/charities/:id/donate" element={<AddDonation charitydata = {charities} />} />
 
 
             </Routes>
