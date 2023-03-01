@@ -26,7 +26,15 @@ function Donations() {
   const donationCards = searched.map((donation) => (
     <Col key={donation.id} sm={6} md={4} lg={3} className="my-3">
       <Card >
-        <Card.Img variant="top" src={donation.image} />
+      <div className="rounded-top" style={{
+                height: 240,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundImage: `url(${donation.image})`
+            }}
+            
+            ></div>
         <Card.Body>
           <Card.Title>{donation.name}</Card.Title>
           <Card.Text>{donation.description}</Card.Text>
