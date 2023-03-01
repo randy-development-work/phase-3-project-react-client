@@ -73,14 +73,5 @@
       "id": 10
     }
   ],
-  "donations": [
-    {
-      "category": "Electronics",
-      "name": "Computer",
-      "image": "https://images.unsplash.com/photo-1646510352470-8058c608c43b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fFJhem9yJTIwbGFwdG9wc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      "description": "A 128 GB RAM PC with 1TB SSD",
-      "quantity": "20",
-      "id": 1
-    }
-  ]
+  "donations": []
 }
