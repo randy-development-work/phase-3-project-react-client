@@ -8,7 +8,7 @@ function EachCharity({charity}) {
     return (
         <Card className='card-style'>
             {/* <Image src={image} wrapped ui={true} /> */}
-            <Link to={`adddonation/${id}`} className="rounded-top" style={{
+            <Link to={`/charities/${id}/donate`} className="rounded-top" style={{
                 height: 240,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
