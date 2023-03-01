@@ -65,6 +65,7 @@ function handleFormSubmit(event) {
 
             <Routes>
                 <Route path="/" element={<Home />} />
+    
                 <Route path="/allcharities" element={
                     <Fragment>
                         <div className="ui three column grid container" style={{
