@@ -6,7 +6,7 @@ const categoryOptions = [
   { value: 'Clothing', label: 'Clothing' },
   { value: 'Electronics', label: 'Electronics' },
   { value: 'Food', label: 'Food' },
-  { value: 'household items', label: 'Household Items' },
+  { value: 'Household Items', label: 'Household Items' },
 ];
 
 const AddDonation = ({charitydata}) => {

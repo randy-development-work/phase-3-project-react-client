@@ -1,8 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, Button, Container, Row, Col,DropdownButton,Dropdown } from "react-bootstrap";
 
 function Donations() {
   const [donations, setDonations] = useState([]);
+  const [search, setSearch] = useState("")
+  // const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // const handleCategorySelect = (category) => {
+  //   setSelectedCategory(category);
+  // };
+  // const categories = ["All", ...new Set(donations.map((donation) => donation.category))];
+  const [hover, setHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
+    
+
+  const searched = donations.filter((charity) => {
+    return search.toLowerCase() === ""
+      ? charity
+      : charity.name.toLowerCase().includes(search);
+  });
+  // const filteredDonations =
+  // selectedCategory === "All"
+  //   ? donations
+  //   : donations.filter((donation) => donation.category === selectedCategory);
+
 
   useEffect(() => {
     fetch("http://localhost:3000/donations")
@@ -20,9 +48,14 @@ function Donations() {
         setDonations(updatedDonations);
       });
   };
-  const donationCards = donations.map((donation) => (
+  const donationCards = searched.map((donation) => (
     <Col key={donation.id} sm={6} md={4} lg={3} className="my-3">
-      <Card>
+      <Card 
+      className={`my-3 mx-2 ${hover ? 'shadow-lg' : 'shadow'}`}
+      style={{ width: '18rem', cursor: 'pointer' }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      >
         <Card.Img variant="top" src={donation.image} />
         <Card.Body>
           <Card.Title>{donation.name}</Card.Title>
@@ -31,7 +64,8 @@ function Donations() {
             {donation.category}
           </Card.Subtitle>
           <Card.Text>Quantity: {donation.quantity}</Card.Text>
-          <Button variant="danger" onClick={() => handleDelete(donation.id)}>Delete</Button>
+          <Button variant="danger" onClick={() => handleDelete(donation.id)} style = {{marginRight: '100px'}}>Delete</Button>
+          <Button variant="success"  onClick={() => handleDelete(donation.id)}>Edit</Button>
         </Card.Body>
       </Card>
     </Col>
@@ -39,6 +73,21 @@ function Donations() {
 
   return (
     <Container>
+      {/* <DropdownButton
+  id="dropdown-basic-button"
+  title={`Filter by category: ${selectedCategory}`}>
+  {categories.map((category) => (
+    <Dropdown.Item
+      key={category}
+      onClick={() => handleCategorySelect(category)} >
+      {category}
+    </Dropdown.Item>
+  ))}
+</DropdownButton> */}
+
+       <form style={{padding:'20px  20px ',paddingLeft: '180px'}} className="d-flex " role="search">
+        <input style={{width:'60rem'}}className="form-control me-2" type="text" placeholder="Search for a donation" value={search}  onChange={(e) => setSearch(e.target.value)} aria-label="Search"/>
+      </form>
       <Row>{donationCards}</Row>
     </Container>
   );
