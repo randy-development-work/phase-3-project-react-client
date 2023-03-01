@@ -46,7 +46,7 @@ function handleCategoryChange(e){
   setSelectedCategory(e.target.value);
 }
   return (
-    <div className ='bg-dark'>
+    <div className ='cover'>
       <h1>{name}</h1>
     <Form onSubmit={handleFormSubmit} style={{padding:'20px  20px ',paddingLeft: '30%'}} >
       <Form.Group controlId="formCategory">

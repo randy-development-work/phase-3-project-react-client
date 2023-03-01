@@ -75,10 +75,10 @@
   ],
   "donations": [
     {
-      "category": "Electronics",
-      "name": "Computer",
-      "image": "https://images.unsplash.com/photo-1646510352470-8058c608c43b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fFJhem9yJTIwbGFwdG9wc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-      "description": "A 128 GB RAM PC with 1TB SSD",
+      "category": "Clothing",
+      "name": "jacket",
+      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "description": "warm jackets",
       "quantity": "20",
       "id": 1
     },
@@ -89,6 +89,30 @@
       "description": "A table made in italy",
       "quantity": "2",
       "id": 2
+    },
+    {
+      "category": "Electronics",
+      "name": "laptop",
+      "image": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "description": "ah hp laptop",
+      "quantity": "1",
+      "id": 2
+    },
+    {
+      "category": "household items",
+      "name": "dishes",
+      "image": "https://images.unsplash.com/photo-1604762433261-a046add6fc11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "description": "kitchen items",
+      "quantity": "15",
+      "id": 3
+    },
+    {
+      "category": "Clothing",
+      "name": "shoes",
+      "image": "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+      "description": "bata",
+      "quantity": "25",
+      "id": 4
     }
   ]
 }
