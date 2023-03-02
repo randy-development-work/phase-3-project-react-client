@@ -19,7 +19,7 @@ function CharitiesPage(){
       });
 
 useEffect(() => {
-        fetch(" http://localhost:9292/charities")
+        fetch(" http://localhost:3000/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
@@ -43,7 +43,7 @@ function handleFormSubmit(event) {
           description: form.elements.formBasicDescription.value,
           year_established: form.elements.formBasicYear.value
         };
-        fetch("http://localhost:9292/charities", {
+        fetch("http://localhost:3000/charities", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -74,6 +74,11 @@ function handleFormSubmit(event) {
 
     return (
         <Fragment>
+            <div className="d-flex justify-content-end">
+            <Button variant="primary" href="/charities#add-charity-form" style = {{marginRight : '110px', marginTop : '50px'}}>
+                Add Charity
+            </Button>
+        </div>
 
             <Routes>
                 <Route path="/" element={<Home />} />
@@ -96,11 +101,11 @@ function handleFormSubmit(event) {
                            </div>
                                 {onecharity}
                                 <div>
-                                <div>
+                                <div >
                                     <h1 style={{padding:'10px  20px ',paddingLeft: '40%'}}>
                                         Add Your Charity
                                     </h1>
-                                    <Form onSubmit={handleFormSubmit} >
+                                    <Form id="add-charity-form" onSubmit={handleFormSubmit} >
                                                 <Form.Group controlId="formBasicName">
                                                     <Form.Label>Name</Form.Label>
                                                     <Form.Control type="text" placeholder="Enter charity name"  />

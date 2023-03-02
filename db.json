@@ -83,15 +83,6 @@
       "id": 3
     },
     {
-      "category": "Clothing",
-      "name": "jacket",
-      "image": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-      "description": "warm jackets",
-      "quantity": "20",
-      "id": 1,
-      "charity_id": 1
-    },
-    {
       "category": "household items",
       "name": "Table",
       "image": "https://images.unsplash.com/photo-1448697138198-9aa6d0d84bf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dGFibGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
