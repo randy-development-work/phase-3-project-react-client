@@ -18,7 +18,7 @@ function CharitiesPage(){
       });
 
 useEffect(() => {
-        fetch(" http://localhost:3000/charities")
+        fetch(" http://localhost:9292/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
@@ -42,7 +42,7 @@ function handleFormSubmit(event) {
           description: form.elements.formBasicDescription.value,
           year_established: form.elements.formBasicYear.value
         };
-        fetch("http://localhost:3000/charities", {
+        fetch("http://localhost:9292/charities", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
