@@ -1,49 +1,37 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useParams, useNavigate } from "react-router-dom";
 import { Header, Icon, Message } from 'semantic-ui-react';
 import Alert from '@mui/material/Button';
-
 
 const categoryOptions = [
   { value: 'Finances', label: 'Money' },
   { value: 'Clothing', label: 'Clothing' },
   { value: 'Electronics', label: 'Electronics' },
   { value: 'Food', label: 'Food' },
-  { value: 'Household Items', label: 'Household Items' },
+  { value: 'household items', label: 'Household Items' },
 ];
 
 const AddDonation = ({charitydata}) => {
+  // Set up state to keep track of the selected category and list of donations
   // navigator
   let navigator = useNavigate();
 
+
   const [selectedCategory, setSelectedCategory] = useState('');
+ 
+  // Destructure the properties of charitydata for use in the component
   const {id, name, image, location, description, year_established} = charitydata
   const [donations,setDonations] = useState([])
   console.log(donations)
   console.log(charitydata)
-
-  // use params to get charity_id
-  let params = useParams();
-  const [charityInfo, setcharityInfo] = useState({})
-  // console.log(params.charityId);
-
-  // capture data from server based on param and save it to state
-  useEffect(() => {
-    fetch(`http://localhost:3000/charities/${params.charityId}`)
-    .then((r)=> r.json())
-    .then((data)=>setcharityInfo(data))
-  }, [params.charityId])
-
-
+   
+  // Event handler for when the form is submitted
 function handleFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const formData = {
       // id: form.elements.formBasicId.value,
-
-      // input charity_id foreign key from params
-      charity_id: params.charityId,
       category: form.elements.formCategory.value,
       name: form.elements.formBasicName.value,
       image: form.elements.formBasicImage.value,
@@ -59,6 +47,7 @@ function handleFormSubmit(event) {
     })
     .then(response => response.json())
     .then(data => {
+      // Adds the new donation to the existing list of donations and reset the form
       setDonations([...donations, data]);
       form.reset();
     })
@@ -66,66 +55,55 @@ function handleFormSubmit(event) {
     navigator("/donations")
     alert("Thank you for Donating.")
     .catch(error => console.error(error));
-
-    console.log(formData)
-}
-function handleCategoryChange(e){
-  setSelectedCategory(e.target.value);
-}
+  
+  console.log(formData)
+  }
+  
+  function handleCategoryChange(e){
+    // Updates the selected category state when the category dropdown is changed
+    setSelectedCategory(e.target.value);
+  }
+  
   return (
-    <div className ='cover' >
-      <div style={{paddingLeft: '40%', backgroundColor:'rgb(72 107 159)'}}>
-      <Header as='h2' icon >
-        <Icon name='chess queen' />
-        {charityInfo.name}
-        <Header.Subheader>
-          Thank you for your Donation.
-        </Header.Subheader>
-      </Header>
-      </div>
-      <br />
-      <br />
-      <br />
-    <Form onSubmit={handleFormSubmit} style={{padding:'20px  20px ',paddingLeft: '18%'}} >
-      <Form.Group controlId="formCategory">
-        <Form.Label>Select a category:</Form.Label>
-        <Form.Control as="select" value={selectedCategory} onChange={handleCategoryChange} style={{width:'60rem'}}>
-          <option value="">Select Donation Category...</option>
-          {categoryOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </Form.Control>
-      </Form.Group>
-      {/* <Form.Group controlId="formBasicId">
-          <Form.Label>Id</Form.Label>
-            <Form.Control type="text" placeholder="Donation Id"  />
-       </Form.Group> */}
-      <Form.Group controlId="formBasicName">
-      <Form.Label>Donation</Form.Label>
+    <div className='cover' >
+      <div >
+        <h1>{name}</h1>
+        {/* Donation form */}
+        <Form onSubmit={handleFormSubmit} style={{padding:'20px  20px ',paddingLeft: '30%'}} >
+          <Form.Group controlId="formCategory">
+            <Form.Label>Select a category:</Form.Label>
+            {/* Category dropdown */}
+            <Form.Control as="select" value={selectedCategory} onChange={handleCategoryChange} style={{width:'60rem'}}>
+              <option value="">Select...</option>
+              {/* Mapping through the category options to generate the dropdown options */}
+              {categoryOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </Form.Control>
+          </Form.Group>
+          {/* Donation input fields */}
+          <Form.Group controlId="formBasicName">
             <Form.Control type="text" placeholder="Donation"  style={{width:'60rem', marginTop: '10px'}} />
-       </Form.Group>
-       <Form.Group controlId="formBasicImage">
-       <Form.Label>Image</Form.Label>
+          </Form.Group>
+          <Form.Group controlId="formBasicImage">
             <Form.Control type="text" placeholder="Donation Image" style={{width:'60rem',marginTop: '10px'}} />
-       </Form.Group>
-       <Form.Group controlId="formBasicDescription">
-       <Form.Label>Description</Form.Label>
+          </Form.Group>
+          <Form.Group controlId="formBasicDescription">
             <Form.Control type="text" placeholder="Donation Description" style={{width:'60rem',marginTop: '10px'}} />
-       </Form.Group>
-       <Form.Group controlId="formBasicQuantity">
-       <Form.Label>Quantity</Form.Label>
+          </Form.Group>
+          <Form.Group controlId="formBasicQuantity">
             <Form.Control type="text" placeholder="Donation Quantity"  style={{width:'60rem',marginTop: '10px'}}/>
-       </Form.Group>
-
-       <br />
-      <Button type="submit" style = {{marginLeft:"35%"}}>
-        Submit
-      </Button>
-    </Form>
+          </Form.Group>
+          {/* Submit button */}
+          <Button type="submit"  className='mt-3' style = {{marginLeft:"30%"}}>
+            Submit
+          </Button>
+        </Form>
+      </div>
     </div>
   );
-};
+  }  
 
 export default AddDonation;

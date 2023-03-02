@@ -10,13 +10,15 @@ import Donations from "./Donations";
 function CharitiesPage(){
     const [charities, setCharities]= useState([]);
     const [search, setSearch] = useState("")
-
+   
+    // Filters charities based on search input
     const searched = charities.filter((charity) => {
         return search.toLowerCase() === ""
           ? charity
           : charity.name.toLowerCase().includes(search);
       });
-
+   
+    // Fetching charities data from backend API using useEffect hook
 useEffect(() => {
         fetch(" http://localhost:3000/charities")
         .then((response) => response.json())
@@ -25,13 +27,14 @@ useEffect(() => {
             console.log(charitiesData) 
             return setCharities(() => charitiesData)})
     }, [])
-
+   // Mapping each charity to an EachCharity component
     const onecharity = searched.map((charity) => {
         return (
             <EachCharity key={charity.id} charity={charity}/>
         )
     })
-
+ 
+    // Handles form submission when adding a new charity
 function handleFormSubmit(event) {
         event.preventDefault();
         const form = event.target;
@@ -63,22 +66,32 @@ function handleFormSubmit(event) {
 
     return (
         <Fragment>
-
+             
             <Routes>
+                      {/* Route for Home component */}
                 <Route path="/home" element={<Home />} />
+                 {/* Route for displaying all charities */}
                 <Route path="/allcharities" element={
                     <Fragment>
+                        {/* Container for search bar, list of charities, and add charity form */}
                         <div className="ui three column grid container" style={{
                             
                             display: 'flex',
                             justifyContent: 'space-between', 
                             alignItems: 'center' 
                             }}>
+                                
                             <div className="row">
+                                {/* Search bar */}
+
                            <div>
                            <form style={{padding:'20px  20px ',paddingLeft: '180px'}} className="d-flex " role="search">
                              <input style={{width:'60rem'}}className="form-control me-2" type="text" placeholder="Search for a charity" value={search}  onChange={(e) => setSearch(e.target.value)} aria-label="Search"/>
                           </form>
+
+                           </div> 
+                           {/* List of charities */}
+
                           <div>
                             <h2 style={{textAlign: 'center'}}>Select a Charity to Add a Donation</h2>
                           </div>

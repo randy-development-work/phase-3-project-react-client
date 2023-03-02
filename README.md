@@ -5,15 +5,16 @@
 DonateIt is a web application that connects people who have items they no longer need with those who are in need. With DonateIt, users can easily donate items and make a difference in their community.
 
 ## User Path:
-- User authentication: Users can sign up and log in to their accounts to access the app's features.
-
 - Donation listings: Users can create listings for the items they want to donate, including details such as the item's name, description, and location.
 
-- Search and filter: Users can search and filter the listings based on location, item type, or other criteria.
+- Search and filter: Users can search and filter the listings based on name of the charity and the donation added.
 
-- Request system: Users who are in need can request the items they need from the listings.
+- Users can add their charity groups to the charity listings.
 
-- Rating and feedback system: Users can rate and leave feedback for each other based on their donation and request experiences.
+- Users can add their donation to a charities donation listings.
+
+- Users can delete their donation
+
 
 ## What was used
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/keithkiama/phase-2-group-2-nasa-group-project/blob/master/LICENSE)![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=flat&logo=bootstrap&logoColor=white)
@@ -31,7 +32,7 @@ DonateIt is a web application that connects people who have items they no longer
 
 ## Acknowledgements
 
- - [DonateIt website](https://meet.google.com/kzb-pjvo-tza)
+ - [DonateIt website]()
 
  ## Support
 
