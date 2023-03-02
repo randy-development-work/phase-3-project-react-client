@@ -22,6 +22,8 @@ function Donations() {
         const updatedDonations = donations.filter((donation) => donation.id !== id);
         setDonations(updatedDonations);
       });
+      // an alert shown on deleting a donation
+      alert("You deleted a Donation.")
   };
   const donationCards = searched.map((donation) => (
     <Col key={donation.id} sm={6} md={4} lg={3} className="my-3">

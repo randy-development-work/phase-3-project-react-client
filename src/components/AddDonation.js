@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useParams, useNavigate } from "react-router-dom";
+import { Header, Icon, Message } from 'semantic-ui-react';
+import Alert from '@mui/material/Button';
 
 const categoryOptions = [
   { value: 'Finances', label: 'Money' },
@@ -10,8 +13,11 @@ const categoryOptions = [
 ];
 
 const AddDonation = ({charitydata}) => {
- 
   // Set up state to keep track of the selected category and list of donations
+  // navigator
+  let navigator = useNavigate();
+
+
   const [selectedCategory, setSelectedCategory] = useState('');
  
   // Destructure the properties of charitydata for use in the component
@@ -45,6 +51,9 @@ function handleFormSubmit(event) {
       setDonations([...donations, data]);
       form.reset();
     })
+    // after post, thiss takes the user to the donations page and gets an alert
+    navigator("/donations")
+    alert("Thank you for Donating.")
     .catch(error => console.error(error));
   
   console.log(formData)
