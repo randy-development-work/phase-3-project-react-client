@@ -110,29 +110,6 @@
       "id": 3,
       "charity_id": 4
     },
-      "category": "Food",
-      "name": "vegetables",
-      "image": "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-      "description": "fresh vegetables",
-      "quantity": "20kg",
-      "id": 5
-      "category": "Clothing",
-      "name": "Trousers",
-      "image": "https://images.unsplash.com/photo-1573288881762-6ec87577a176?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bmVlZHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "description": "We are here for you",
-      "quantity": "20",
-      "id": 4,
-      "charity_id": 3
-    },
-    {
-      "charity_id": "9",
-      "category": "Electronics",
-      "name": "cbb",
-      "image": "xn",
-      "description": "nxb",
-      "quantity": "3",
-      "id": 6
-    },
     {
       "category": "Electronics",
       "name": "shoes",

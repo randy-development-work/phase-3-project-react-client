@@ -78,6 +78,9 @@ function handleFormSubmit(event) {
                            <form style={{padding:'20px  20px ',paddingLeft: '180px'}} className="d-flex " role="search">
                              <input style={{width:'60rem'}}className="form-control me-2" type="text" placeholder="Search for a charity" value={search}  onChange={(e) => setSearch(e.target.value)} aria-label="Search"/>
                           </form>
+                          <div>
+                            <h2 style={{textAlign: 'center'}}>Select a Charity to Add a Donation</h2>
+                          </div>
                            </div>
                                 {onecharity}
                                 <div>
