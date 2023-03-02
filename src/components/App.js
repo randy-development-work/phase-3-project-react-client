@@ -1,10 +1,10 @@
 import '../App.css';
 import React from 'react';
 import Home from './Home';
-import CharitiesPage from './CharitiesPage';
+import CharitiesPage from '../components/CharitiesPage';
 import {Routes,Route,} from 'react-router-dom';
-import NavBar from './Navbar';
-import Donations from './Donations';
+import NavBar from '../components/Navbar';
+import Donations from '../components/Donations';
 function App() {
     
   return (
