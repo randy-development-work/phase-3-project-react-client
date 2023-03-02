@@ -74,13 +74,11 @@ function handleFormSubmit(event) {
     return (
         <Fragment>
             <div className="d-flex justify-content-end">
-            <Button variant="primary" href="/charities#add-charity-form" style = {{marginRight : '110px', marginTop : '50px', display:'flex' }}>
-                Add Charity
-            </Button>
+            
         </div>
 
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/charities" element={
                     <Fragment>
                         <div className="ui three column grid container" style={{
@@ -89,6 +87,9 @@ function handleFormSubmit(event) {
                             justifyContent: 'space-between', 
                             alignItems: 'center' 
                             }}>
+                                <Button variant="primary" href="/charities#add-charity-form" style = {{marginRight : '110px', marginTop : '50px', display:'flex' }}>
+                                    Add Charity
+                                 </Button>
                             <div className="row">
                            <div>
                            <form style={{padding:'20px  20px ',paddingLeft: '180px'}} className="d-flex " role="search">
