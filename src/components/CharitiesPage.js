@@ -13,8 +13,7 @@ function CharitiesPage(){
     const [search, setSearch] = useState("")
 
     const searched = charities.filter((charity) => {
-        return search.toLowerCase() === ""
-          ? charity
+        return search.toLowerCase() === "" ? charity
           : charity.name.toLowerCase().includes(search);
       });
 
@@ -74,9 +73,12 @@ function handleFormSubmit(event) {
 
     return (
         <Fragment>
+            <div className="d-flex justify-content-end">
+            
+        </div>
 
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/charities" element={
                     <Fragment>
                         <div className="ui three column grid container" style={{
@@ -85,6 +87,9 @@ function handleFormSubmit(event) {
                             justifyContent: 'space-between', 
                             alignItems: 'center' 
                             }}>
+                                <Button variant="primary" href="/charities#add-charity-form" style = {{marginRight : '110px', marginTop : '50px', display:'flex' }}>
+                                    Add Charity
+                                 </Button>
                             <div className="row">
                            <div>
                            <form style={{padding:'20px  20px ',paddingLeft: '180px'}} className="d-flex " role="search">
@@ -96,11 +101,11 @@ function handleFormSubmit(event) {
                            </div>
                                 {onecharity}
                                 <div>
-                                <div>
+                                <div >
                                     <h1 style={{padding:'10px  20px ',paddingLeft: '40%'}}>
                                         Add Your Charity
                                     </h1>
-                                    <Form onSubmit={handleFormSubmit} >
+                                    <Form id="add-charity-form" onSubmit={handleFormSubmit} >
                                                 <Form.Group controlId="formBasicName">
                                                     <Form.Label>Name</Form.Label>
                                                     <Form.Control type="text" placeholder="Enter charity name"  />
