@@ -73,6 +73,11 @@ export default function NavBar() {
             onClick={handleItemClick}
             href="/donations"
           />
+          {/* <Menu.Item
+          name='About'
+          active = {activeItem === 'About'}
+          onClick ={handleItemClick}
+          href = "/#" */}
         </Menu>
       </Segment>
     )
