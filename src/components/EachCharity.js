@@ -33,10 +33,14 @@ function EachCharity({charity}) {
                 </p>
             </Card.Description>
             </Card.Content>
-            {/* <Card.Content extra>
+            <Card.Content extra>
             <a>
+                <Link to={`/charities/${id}/edit`} className="ms-3">
+                        {/* <i className="h2 bi bi-pencil-square"></i> */}
+                        <p><Icon name="edit"/>Edit</p>
+                </Link>
                 
-                <Button primary style={{
+                {/* <Button primary style={{
                   color: color,
                   background: background
                 }}
@@ -44,9 +48,9 @@ function EachCharity({charity}) {
                 >
                   <Icon name={willAttend ? 'paper plane outline' : 'time'} />{willAttend ? "RSVP'd" : "Attend"}
                   </Button>
-                <Button secondary onClick={handleDelete}><Icon name='delete calendar' />Delete</Button>
+                <Button secondary onClick={handleDelete}><Icon name='delete calendar' />Delete</Button> */}
             </a>
-            </Card.Content> */}
+            </Card.Content>
         </Card>
     )
 }

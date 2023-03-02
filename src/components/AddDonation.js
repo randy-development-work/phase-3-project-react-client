@@ -30,7 +30,7 @@ const AddDonation = ({charitydata}) => {
 
   // capture data from server based on param and save it to state
   useEffect(() => {
-    fetch(`http://localhost:3000/charities/${params.charityId}`)
+    fetch(`http://localhost:9292/charities/${params.charityId}`)
     .then((r)=> r.json())
     .then((data)=>setcharityInfo(data))
   }, [params.charityId])
@@ -50,7 +50,7 @@ function handleFormSubmit(event) {
       description: form.elements.formBasicDescription.value,
       quantity: form.elements.formBasicQuantity.value
     };
-    fetch("http://localhost:3000/donations", {
+    fetch("http://localhost:9292/donations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -108,7 +108,7 @@ function handleCategoryChange(e){
        </Form.Group>
        <Form.Group controlId="formBasicImage">
        <Form.Label>Image</Form.Label>
-            <Form.Control type="text" placeholder="Donation Image" style={{width:'60rem',marginTop: '10px'}} />
+            <Form.Control type="file" placeholder="Donation Image" style={{width:'60rem',marginTop: '10px'}} />
        </Form.Group>
        <Form.Group controlId="formBasicDescription">
        <Form.Label>Description</Form.Label>
