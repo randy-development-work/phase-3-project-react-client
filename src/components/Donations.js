@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col,DropdownButton,Dropdown } from "react-bootstrap";
 import { Icon, Image, Button } from 'semantic-ui-react';
 import { json, Link, useParams } from "react-router-dom";
+import FilterType from "./FilterType";
 
 function Donations() {
   // let params = useParams();
@@ -9,7 +10,7 @@ function Donations() {
   // const { groupId, donationId } = useParams();
 
   const [donations, setDonations] = useState([]);
-  const [search, setSearch] = useState("")
+  // const [search, setSearch] = useState("")
   // const [selectedCategory, setSelectedCategory] = useState("All");
 
   // const handleCategorySelect = (category) => {
@@ -25,13 +26,44 @@ function Donations() {
   const handleMouseLeave = () => {
     setHover(false);
   };
+
+
+  // create state for holding search 
+    // because this is a parent compoonent to Each event and Search
+    const [searchResults, setSearchResults] = useState("");
+
+    // state to hold search parameters for each event
+    const [searchParam] = useState(["description", "name", "quantity", "category"]);
+
+    // useState for filter parameters
+    const [filterParam, setFilterParam] = useState(["All"]);
+
+  // useState for pagination
+  const [paginate, setPaginate] = useState(8);
     
 
-  const searched = donations.filter((charity) => {
-    return search.toLowerCase() === ""
-      ? charity
-      : charity.name.toLowerCase().includes(search);
-  });
+  // load more button styling
+  const loadBtn = {
+      display: "block",
+      marginTop: "2rem",
+      marginBottom: "3rem",
+      fontSize: "1.4rem",
+      padding: "12px 32px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      borderRadius: "40px",
+      backgroundColor: "#2d92de",
+      border: "1px solid #2185d0",
+      color: "#fff",
+      cursor: "pointer"
+  }
+    
+
+  // const searched = donations.filter((charity) => {
+  //   return search.toLowerCase() === ""
+  //     ? charity
+  //     : charity.name.toLowerCase().includes(search);
+  // });
   // const filteredDonations =
   // selectedCategory === "All"
   //   ? donations
@@ -65,7 +97,42 @@ function Donations() {
   //   .then((data) => setEditData(data))
   // }, [donationId])
 
-  const donationCards = searched.map((donation) => (
+  // function to handle both search results and filtered results
+  function search(donations) {
+    return donations.filter((donation) => {
+        // filter by type
+        if (donation.category === filterParam) { 
+            // default search based on parameters
+            return searchParam.some((newDonation) => {
+                return (
+                    donation[newDonation]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(searchResults.toLowerCase()) > -1
+                );
+            });
+        } else if (filterParam == "All") {
+            return searchParam.some((newDonation) => {
+                return (
+                    donation[newDonation]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(searchResults.toLowerCase()) > -1
+                );
+            });
+
+        }
+    }
+)}
+
+const load_more = (donation) => {
+    setPaginate((prevValue) => prevValue + 8);
+};
+
+let donData = Object.values(donations);
+
+  let donationCards = search(donData)
+    .slice(0, paginate).map((donation) => (
     <Col key={donation.id} sm={6} md={4} lg={3} className="my-3">
       <Card 
       className={`my-3 mx-2 ${hover ? 'shadow-lg' : 'shadow'}`}
@@ -119,11 +186,19 @@ function Donations() {
     </Dropdown.Item>
   ))}
 </DropdownButton> */}
-
-       <form style={{padding:'20px  20px ',paddingLeft: '180px'}} className="d-flex " role="search">
-        <input style={{width:'60rem'}}className="form-control me-2" type="text" placeholder="Search for a donation" value={search}  onChange={(e) => setSearch(e.target.value)} aria-label="Search"/>
+<div className="wrapper" style={{
+                        display: "flex",
+                        justifyContent: 'space-between', 
+                        alignItems: 'center' 
+                        }}>
+       <form className="d-flex " role="search">
+        
+        <input style={{width:'25rem'}}className="form-control me-2" type="text" placeholder="Search for a donation" value={searchResults}  onChange={(e) => setSearchResults(e.target.value)} aria-label="Search"/>
       </form>
+      <FilterType filterParam={filterParam} setFilterParam={setFilterParam} />
+      </div>
       <Row>{donationCards}</Row>
+      <button onClick={load_more} style={loadBtn}>Load More...</button>
     </Container>
   );
 }

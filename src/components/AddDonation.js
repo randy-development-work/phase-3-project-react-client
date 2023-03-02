@@ -6,7 +6,7 @@ import Alert from '@mui/material/Button';
 
 
 const categoryOptions = [
-  { value: 'Finances', label: 'Money' },
+  { value: 'Cash', label: 'Cash' },
   { value: 'Clothing', label: 'Clothing' },
   { value: 'Electronics', label: 'Electronics' },
   { value: 'Food', label: 'Food' },
@@ -103,7 +103,7 @@ function handleCategoryChange(e){
             <Form.Control type="text" placeholder="Donation Id"  />
        </Form.Group> */}
       <Form.Group controlId="formBasicName">
-      <Form.Label>Donation</Form.Label>
+      <Form.Label>Donation Name</Form.Label>
             <Form.Control type="text" placeholder="Donation"  style={{width:'60rem', marginTop: '10px'}} />
        </Form.Group>
        <Form.Group controlId="formBasicImage">
