@@ -51,7 +51,7 @@ export default function NavBar() {
             name='logo'
             active={activeItem === 'logo'}
             onClick={handleItemClick}
-            href="/home"
+            href="/"
           >
             <img src="https://images.unsplash.com/photo-1460013477427-b0cce3e30151?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzJ8fGNoYXJpdHl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"  alt="" />
           </Menu.Item>
