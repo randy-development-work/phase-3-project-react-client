@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import 'semantic-ui-css/semantic.min.css'
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import { render } from 'react-dom';
+// import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+// import AlertTemplate from 'react-alert-template-basic';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

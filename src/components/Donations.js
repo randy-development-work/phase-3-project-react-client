@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Container, Row, Col,DropdownButton,Dropdown } from "react-bootstrap";
+import { Card, Container, Row, Col,DropdownButton,Dropdown } from "react-bootstrap";
+import { Icon, Image, Button } from 'semantic-ui-react';
 
 function Donations() {
   const [donations, setDonations] = useState([]);
@@ -47,6 +48,8 @@ function Donations() {
         const updatedDonations = donations.filter((donation) => donation.id !== id);
         setDonations(updatedDonations);
       });
+      // an alert shown on deleting a donation
+      alert("You deleted a Donation.")
   };
   const donationCards = searched.map((donation) => (
     <Col key={donation.id} sm={6} md={4} lg={3} className="my-3">
@@ -56,7 +59,15 @@ function Donations() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       >
-        <Card.Img variant="top" src={donation.image} />
+        <div className="donation-img" style={{
+                height: 240,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundImage: `url(${donation.image})`
+            }}
+            
+            ></div>
         <Card.Body>
           <Card.Title>{donation.name}</Card.Title>
           <Card.Text>{donation.description}</Card.Text>
@@ -64,8 +75,10 @@ function Donations() {
             {donation.category}
           </Card.Subtitle>
           <Card.Text>Quantity: {donation.quantity}</Card.Text>
-          <Button variant="danger" onClick={() => handleDelete(donation.id)} style = {{marginRight: '100px'}}>Delete</Button>
-          <Button variant="success" >Edit</Button>
+          {/* <Button variant="danger" onClick={() => handleDelete(donation.id)} style = {{marginRight: '100px'}}>Delete</Button>
+          <Button variant="success"  onClick={() => handleDelete(donation.id)}>Edit</Button> */}
+          <Button primary ><Icon name='edit' />Edit</Button>
+          <Button secondary onClick={() => handleDelete(donation.id)}><Icon name='delete' />Delete</Button>
         </Card.Body>
       </Card>
     </Col>

@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useParams, useNavigate } from "react-router-dom";
+import { Header, Icon, Message } from 'semantic-ui-react';
+import Alert from '@mui/material/Button';
+
 
 const categoryOptions = [
   { value: 'Finances', label: 'Money' },
@@ -10,17 +14,36 @@ const categoryOptions = [
 ];
 
 const AddDonation = ({charitydata}) => {
+  // navigator
+  let navigator = useNavigate();
+
   const [selectedCategory, setSelectedCategory] = useState('');
   const {id, name, image, location, description, year_established} = charitydata
   const [donations,setDonations] = useState([])
   console.log(donations)
   console.log(charitydata)
+
+  // use params to get charity_id
+  let params = useParams();
+  const [charityInfo, setcharityInfo] = useState({})
+  // console.log(params.charityId);
+
+  // capture data from server based on param and save it to state
+  useEffect(() => {
+    fetch(`http://localhost:3000/charities/${params.charityId}`)
+    .then((r)=> r.json())
+    .then((data)=>setcharityInfo(data))
+  }, [params.charityId])
+
+
 function handleFormSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const formData = {
       // id: form.elements.formBasicId.value,
-      charity_id: id,
+
+      // input charity_id foreign key from params
+      charity_id: params.charityId,
       category: form.elements.formCategory.value,
       name: form.elements.formBasicName.value,
       image: form.elements.formBasicImage.value,
@@ -39,6 +62,9 @@ function handleFormSubmit(event) {
       setDonations([...donations, data]);
       form.reset();
     })
+    // after post, thiss takes the user to the donations page and gets an alert
+    navigator("/donations")
+    alert("Thank you for Donating.")
     .catch(error => console.error(error));
 
     console.log(formData)
@@ -47,13 +73,24 @@ function handleCategoryChange(e){
   setSelectedCategory(e.target.value);
 }
   return (
-    <div className ='cover'>
-      <h1>{name}</h1>
-    <Form onSubmit={handleFormSubmit} style={{padding:'20px  20px ',paddingLeft: '30%'}} >
+    <div className ='cover' >
+      <div style={{paddingLeft: '40%', backgroundColor:'rgb(72 107 159)'}}>
+      <Header as='h2' icon >
+        <Icon name='chess queen' />
+        {charityInfo.name}
+        <Header.Subheader>
+          Thank you for your Donation.
+        </Header.Subheader>
+      </Header>
+      </div>
+      <br />
+      <br />
+      <br />
+    <Form onSubmit={handleFormSubmit} style={{padding:'20px  20px ',paddingLeft: '18%'}} >
       <Form.Group controlId="formCategory">
         <Form.Label>Select a category:</Form.Label>
         <Form.Control as="select" value={selectedCategory} onChange={handleCategoryChange} style={{width:'60rem'}}>
-          <option value="">Select...</option>
+          <option value="">Select Donation Category...</option>
           {categoryOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
@@ -82,8 +119,8 @@ function handleCategoryChange(e){
             <Form.Control type="text" placeholder="Donation Quantity"  style={{width:'60rem',marginTop: '10px'}}/>
        </Form.Group>
 
-
-      <Button type="submit" style = {{marginLeft:"30%"}}>
+       <br />
+      <Button type="submit" style = {{marginLeft:"35%"}}>
         Submit
       </Button>
     </Form>
