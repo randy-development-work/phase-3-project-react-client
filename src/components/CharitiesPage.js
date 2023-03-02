@@ -13,8 +13,7 @@ function CharitiesPage(){
     const [search, setSearch] = useState("")
 
     const searched = charities.filter((charity) => {
-        return search.toLowerCase() === ""
-          ? charity
+        return search.toLowerCase() === "" ? charity
           : charity.name.toLowerCase().includes(search);
       });
 
@@ -75,7 +74,7 @@ function handleFormSubmit(event) {
     return (
         <Fragment>
             <div className="d-flex justify-content-end">
-            <Button variant="primary" href="/charities#add-charity-form" style = {{marginRight : '110px', marginTop : '50px'}}>
+            <Button variant="primary" href="/charities#add-charity-form" style = {{marginRight : '110px', marginTop : '50px', display:'flex' }}>
                 Add Charity
             </Button>
         </div>
