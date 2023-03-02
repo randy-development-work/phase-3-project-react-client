@@ -45,6 +45,7 @@
 import { Nav } from 'react-bootstrap';
 
 function Home() {
+<<<<<<< HEAD
   return (
     <section className='home'>
       <div >
@@ -182,6 +183,9 @@ function Home() {
       `}</style>
     </section>
   );
+=======
+ 
+>>>>>>> 5e81369c7c99b674346fd8b5e558ceef36a63e04
 }
 
 export default Home;
