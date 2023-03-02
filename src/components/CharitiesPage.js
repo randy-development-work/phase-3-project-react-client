@@ -54,6 +54,7 @@ function handleFormSubmit(event) {
           setCharities([...charities, data]);
           form.reset();
         })
+        alert("You've added a Charity.")
         .catch(error => console.error(error));
 
         console.log(formData)
