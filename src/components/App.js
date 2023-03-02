@@ -6,7 +6,7 @@ import {Routes,Route,} from 'react-router-dom';
 import NavBar from './Navbar';
 import Donations from './Donations';
 function App() {
-    
+    // renders the app components
   return (
     <div>
       <div className = "App">
