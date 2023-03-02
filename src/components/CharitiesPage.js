@@ -6,6 +6,7 @@ import AddDonation from "./AddDonation";
 import { Route, Routes, Outlet } from "react-router-dom";
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import Donations from "./Donations";
+import EditCharity from "./EditCharity";
 
 function CharitiesPage(){
     const [charities, setCharities]= useState([]);
@@ -18,7 +19,7 @@ function CharitiesPage(){
       });
 
 useEffect(() => {
-        fetch(" http://localhost:3000/charities")
+        fetch(" http://localhost:9292/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
@@ -42,7 +43,7 @@ function handleFormSubmit(event) {
           description: form.elements.formBasicDescription.value,
           year_established: form.elements.formBasicYear.value
         };
-        fetch("http://localhost:3000/charities", {
+        fetch("http://localhost:9292/charities", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -59,14 +60,24 @@ function handleFormSubmit(event) {
 
         console.log(formData)
     }
+
+    // showing new edits
+    function updateCharity(updatedCharity) {
+        const updatedChar = charities.map((charity) => {
+            if (charity.id === updatedCharity.id) {
+                return updatedCharity;
+            } else return charity;
+        });
+        setCharities(updatedChar);
+    }
       
 
     return (
         <Fragment>
 
             <Routes>
-                <Route path="/home" element={<Home />} />
-                <Route path="/allcharities" element={
+                <Route path="/" element={<Home />} />
+                <Route path="/charities" element={
                     <Fragment>
                         <div className="ui three column grid container" style={{
                             
@@ -99,8 +110,8 @@ function handleFormSubmit(event) {
                                                         <Form.Control type="text" placeholder="Enter Description" />
                                                  </Form.Group>
                                                 <Form.Group controlId="formBasicImage">
-                                                         <Form.Label>Image Link</Form.Label>
-                                                         <Form.Control type="text" placeholder="Enter image"  />
+                                                         <Form.Label>Image</Form.Label>
+                                                         <Form.Control type="file" placeholder="Enter image"  />
                                                  </Form.Group>
                                                  <Form.Group controlId="formBasicYear">
                                                          <Form.Label>Year Established</Form.Label>
@@ -131,6 +142,7 @@ function handleFormSubmit(event) {
                 </Route>
                 <Route path="/charities/:charityId/donate" element={<AddDonation charitydata = {charities} />} />
                 <Route path="/charities/:id/viewdonations" element={<Donations charitydata = {charities} />} />
+                <Route path="/charities/:charityId/edit" element={<EditCharity charities = {charities} onUpdateCharity = {updateCharity} />} />
 
 
             </Routes>

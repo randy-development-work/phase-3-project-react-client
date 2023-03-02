@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col,DropdownButton,Dropdown } from "react-bootstrap";
 import { Icon, Image, Button } from 'semantic-ui-react';
+import { json, Link, useParams } from "react-router-dom";
 
 function Donations() {
+  // let params = useParams();
+  // const [editData, setEditData] = useState(null);
+  // const { groupId, donationId } = useParams();
+
   const [donations, setDonations] = useState([]);
   const [search, setSearch] = useState("")
   // const [selectedCategory, setSelectedCategory] = useState("All");
@@ -34,13 +39,14 @@ function Donations() {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/donations")
+    fetch("http://localhost:9292/donations")
       .then((response) => response.json())
       .then((donationsData) => setDonations(donationsData));
+      console.log(donations);
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3000/donations/${id}`, {
+    fetch(`http://localhost:9292/donations/${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
@@ -51,6 +57,14 @@ function Donations() {
       // an alert shown on deleting a donation
       alert("You deleted a Donation.")
   };
+
+  // give edit data individual donation data
+  // useEffect(() => {
+  //   fetch(`http://localhost:9292/donations/${donationsId}`)
+  //   .then((r)=>r.json())
+  //   .then((data) => setEditData(data))
+  // }, [donationId])
+
   const donationCards = searched.map((donation) => (
     <Col key={donation.id} sm={6} md={4} lg={3} className="my-3">
       <Card 
@@ -77,7 +91,15 @@ function Donations() {
           <Card.Text>Quantity: {donation.quantity}</Card.Text>
           {/* <Button variant="danger" onClick={() => handleDelete(donation.id)} style = {{marginRight: '100px'}}>Delete</Button>
           <Button variant="success"  onClick={() => handleDelete(donation.id)}>Edit</Button> */}
-          <Button primary ><Icon name='edit' />Edit</Button>
+          {/* <div>
+            <Link to={`/donations/${donation.id}/edit`} className="ms-3">
+                      
+                      <p>edit</p>
+            </Link>
+          </div>
+          <Button primary ><Icon name='edit' />
+            Edit
+          </Button> */}
           <Button secondary onClick={() => handleDelete(donation.id)}><Icon name='delete' />Delete</Button>
         </Card.Body>
       </Card>
