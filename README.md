@@ -4,6 +4,9 @@
 
 DonateIt is a web application that connects people who have items they no longer need with those who are in need. With DonateIt, users can easily donate items and make a difference in their community.
 
+## Accessing the Website
+This project is deployed in Vercel. Click this link to access it: https://phase-3-project-react-client.vercel.app/.
+
 ## User Path:
 
 - Donation listings: Users can create listings for the items they want to donate, including details such as the item's name, description, and location.
@@ -15,6 +18,9 @@ DonateIt is a web application that connects people who have items they no longer
 - Users can add their donation to a charities donation listings.
 
 - Users can delete their donation
+
+## Back End
+The back end is deployed in Railway. Here is the link: https://g-iv-back-end-production.up.railway.app/.
 
 ## What was used
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/keithkiama/phase-2-group-2-nasa-group-project/blob/master/LICENSE)![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=flat&logo=bootstrap&logoColor=white)
