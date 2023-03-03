@@ -1,6 +1,7 @@
 import { Nav } from 'react-bootstrap';
 
 function Home() {
+
   return(
     <section className='home-p'>
     <div className="content" style={{  height: '30%', width: '40%',position: "absolute", marginTop: "5%", marginLeft: "2%", fontSize: "160px",color: "#fff", fontWeight: "600"}}>
@@ -27,6 +28,7 @@ function Home() {
     </div>
   </section>
 )
+
 }
 
 export default Home
