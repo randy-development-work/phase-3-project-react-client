@@ -87,7 +87,7 @@ function handleFormSubmit(event) {
                             justifyContent: 'space-between', 
                             alignItems: 'center' 
                             }}>
-                                <Button variant="primary" href="/charities#add-charity-form" style = {{marginRight : '110px', marginTop : '50px', display:'flex' }}>
+                                <Button variant="primary" href="/charities#add-charity-form" style = {{marginLeft : '1050px', marginTop : '50px', display:'flex' }}>
                                     Add Charity
                                  </Button>
                             <div className="row">
