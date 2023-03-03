@@ -18,13 +18,15 @@ function CharitiesPage(){
       });
 
 useEffect(() => {
-        fetch("g-iv-back-end-production.up.railway.app/charities")
+        fetch("https://g-iv-back-end-production.up.railway.app/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
             console.log(charitiesData) 
             return setCharities(() => charitiesData)})
     }, [])
+
+    console.log(charities);
 
     const onecharity = searched.map((charity) => {
         return (
@@ -42,7 +44,7 @@ function handleFormSubmit(event) {
           description: form.elements.formBasicDescription.value,
           year_established: form.elements.formBasicYear.value
         };
-        fetch("g-iv-back-end-production.up.railway.app/charities", {
+        fetch("https://g-iv-back-end-production.up.railway.app/charities", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
