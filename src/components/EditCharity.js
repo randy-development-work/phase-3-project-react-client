@@ -10,7 +10,7 @@ function EditCharity({charities, onUpdateCharity}) {
 
     // fetch the user & pre-fill the form so that the user does not have to write from scratch
     useEffect(() => {
-        fetch(`http://localhost:9292/charities/${charityId}`)
+        fetch(`g-iv-back-end-production.up.railway.app/${charityId}`)
         .then((r)=> r.json())
         .then((data) => setEditData(data))
     }, [charityId])
@@ -19,7 +19,7 @@ function EditCharity({charities, onUpdateCharity}) {
         event.preventDefault();
 
         // set the request to the server
-        fetch(`http://localhost:9292/charities/${charityId}`, {
+        fetch(`g-iv-back-end-production.up.railway.app/${charityId}`, {
             method: "PATCH",
             body: JSON.stringify(editData),
             headers: {

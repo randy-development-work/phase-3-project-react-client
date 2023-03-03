@@ -7,7 +7,7 @@ function FilterType({ filterParam, setFilterParam }) {
 
     // getting categories from server
     useEffect(() => {
-        fetch("http://localhost:9292/categories")
+        fetch("g-iv-back-end-production.up.railway.app/categories")
         .then((r)=>r.json())
         .then((data) => setCategories(data))
     },[]);

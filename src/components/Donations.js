@@ -71,14 +71,14 @@ function Donations() {
 
 
   useEffect(() => {
-    fetch("http://localhost:9292/donations")
+    fetch("g-iv-back-end-production.up.railway.app/donations")
       .then((response) => response.json())
       .then((donationsData) => setDonations(donationsData));
       console.log(donations);
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:9292/donations/${id}`, {
+    fetch(`g-iv-back-end-production.up.railway.app/donations/${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
