@@ -18,7 +18,7 @@ function CharitiesPage(){
       });
 
 useEffect(() => {
-        fetch("https://g-iv-back-end-production.up.railway.app/charities")
+    fetch("https://g-iv-back-end-production.up.railway.app/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
@@ -44,7 +44,10 @@ function handleFormSubmit(event) {
           description: form.elements.formBasicDescription.value,
           year_established: form.elements.formBasicYear.value
         };
-        fetch("http://localhost:9292/charities", {
+
+
+        fetch("https://g-iv-back-end-production.up.railway.app/charities", {
+
           method: "POST",
           headers: {
             "Content-Type": "application/json"

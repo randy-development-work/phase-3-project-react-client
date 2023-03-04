@@ -30,6 +30,7 @@ const AddDonation = ({charitydata}) => {
 
   // capture data from server based on param and save it to state
   useEffect(() => {
+
     fetch(`https://g-iv-back-end-production.up.railway.app/${params.charityId}`)
     .then((r)=> r.json())
     .then((data)=>setcharityInfo(data))
@@ -50,7 +51,8 @@ function handleFormSubmit(event) {
       description: form.elements.formBasicDescription.value,
       quantity: form.elements.formBasicQuantity.value
     };
-    fetch("http://localhost:9292/donations", {
+    fetch("https://g-iv-back-end-production.up.railway.app/donations", {
+
       method: "POST",
       headers: {
         "Content-Type": "application/json"

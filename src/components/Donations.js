@@ -71,6 +71,7 @@ function Donations() {
 
 
   useEffect(() => {
+
     fetch("https://g-iv-back-end-production.up.railway.app/donations")
       .then((response) => response.json())
       .then((donationsData) => setDonations(donationsData));
@@ -78,7 +79,9 @@ function Donations() {
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:9292/donations/${id}`, {
+
+    fetch(`https://g-iv-back-end-production.up.railway.app/donations/${id}`, {
+
       method: 'DELETE',
     })
       .then((response) => response.json())
