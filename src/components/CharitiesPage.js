@@ -17,8 +17,7 @@ function CharitiesPage(){
           : charity.name.toLowerCase().includes(search);
       });
 
-useEffect(() => {
-    fetch("https://g-iv-back-end-production.up.railway.app/charities")
+useEffect(() => {fetch("https://g-iv-back-end-production.up.railway.app/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
