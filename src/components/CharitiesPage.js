@@ -18,7 +18,7 @@ function CharitiesPage(){
       });
 
 useEffect(() => {
-        fetch(" http://localhost:9292/charities")
+        fetch(" http://localhost:3000/charities")
         .then((response) => response.json())
         // using async method to add events
         .then((charitiesData) => {
@@ -42,7 +42,7 @@ function handleFormSubmit(event) {
           description: form.elements.formBasicDescription.value,
           year_established: form.elements.formBasicYear.value
         };
-        fetch("http://localhost:9292/charities", {
+        fetch("http://localhost:3000/charities", {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -73,7 +73,7 @@ function handleFormSubmit(event) {
 
     return (
         <Fragment>
-            <div className="d-flex justify-content-end">
+            <div className="d-flex justify-content-end bg-colo">
             
         </div>
 
@@ -87,7 +87,7 @@ function handleFormSubmit(event) {
                             justifyContent: 'space-between', 
                             alignItems: 'center' 
                             }}>
-                                <Button variant="primary" href="/charities#add-charity-form" style = {{marginLeft : '1050px', marginTop : '50px', display:'flex' }}>
+                                <Button variant="success" href="/charities#add-charity-form" style = {{marginLeft : '1050px', marginTop : '50px', display:'flex' }}>
                                     Add Charity
                                  </Button>
                             <div className="row">

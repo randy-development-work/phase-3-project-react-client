@@ -71,14 +71,14 @@ function Donations() {
 
 
   useEffect(() => {
-    fetch("http://localhost:9292/donations")
+    fetch("http://localhost:3000/donations")
       .then((response) => response.json())
       .then((donationsData) => setDonations(donationsData));
       console.log(donations);
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:9292/donations/${id}`, {
+    fetch(`http://localhost:3000/donations/${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
@@ -92,7 +92,7 @@ function Donations() {
 
   // give edit data individual donation data
   // useEffect(() => {
-  //   fetch(`http://localhost:9292/donations/${donationsId}`)
+  //   fetch(`http://localhost:3000/donations/${donationsId}`)
   //   .then((r)=>r.json())
   //   .then((data) => setEditData(data))
   // }, [donationId])

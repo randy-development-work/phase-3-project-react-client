@@ -71,6 +71,14 @@
       "description": "Save for you",
       "year_established": "2023",
       "id": 10
+    },
+    {
+      "name": "Nyumbani",
+      "image": "C:\\fakepath\\geetanjal-khanna-8CwoHpZe3qE-unsplash.jpg",
+      "location": "Karen",
+      "description": "helping the needy",
+      "year_established": "1993",
+      "id": 11
     }
   ],
   "donations": [

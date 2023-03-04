@@ -14,6 +14,7 @@ function EachCharity({charity}) {
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `url(${image})`
+              
             }}
             
             ></Link>
