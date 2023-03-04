@@ -78,9 +78,9 @@ function EditCharity({charities, onUpdateCharity}) {
                     onChange={handleFormInput} />
             </div>
 
-            {/* handle date of death */}
+            {/* handle Year Established */}
             <div className="mb-4">
-                <label htmlFor="individual-dod" className="form-label">Year Established</label>
+                <label htmlFor="individual-doe" className="form-label">Year Established</label>
                 <input type="number" name="year_established" placeholder="yyyy" className="form-control" id="individual-dod"
                     value={editData?.year_established}
                     onChange={handleFormInput} />

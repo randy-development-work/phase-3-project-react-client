@@ -79,3 +79,37 @@
   transition: 0.5s;
   cursor: pointer;
 }
+#add-charity-form {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+#add-charity-form input[type="text"],
+#add-charity-form input[type="file"],
+#add-charity-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+#add-charity-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#add-charity-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+
+
+
+
+

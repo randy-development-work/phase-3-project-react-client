@@ -13,7 +13,9 @@ function EachCharity({charity}) {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundImage: `url(${image})`
+                backgroundImage: `url(${image})`,
+                backgroundcolor:  "rgba(255, 255, 255)"
+              
             }}
             
             ></Link>
