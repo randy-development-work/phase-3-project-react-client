@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { Card, Icon, Image, Button } from 'semantic-ui-react';
 
@@ -5,8 +6,23 @@ function EachCharity({charity}) {
     // destructuring the charity prop for easier access
     const {id, name, image, location, description, year_established} = charity
 
+    const [hover, setHover] = useState(false);
+
+    const handleMouseEnter = () => {
+      setHover(true);
+    };
+  
+    const handleMouseLeave = () => {
+      setHover(false);
+    };
+
     return (
-        <Card className='card-style'>
+        <Card
+        className={`my-3 mx-2 ${hover ? "shadow-lg" : "shadow"}`}
+        style={{ width: "18rem", cursor: "pointer" }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
             {/* <Image src={image} wrapped ui={true} /> */}
             <Link to={`/charities/${id}/donate`} className="rounded-top" style={{
                 height: 240,
