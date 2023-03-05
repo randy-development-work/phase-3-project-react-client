@@ -31,7 +31,7 @@ const AddDonation = ({charitydata}) => {
   // capture data from server based on param and save it to state
   useEffect(() => {
 
-    fetch(`https://g-iv-back-end-production.up.railway.app/${params.charityId}`)
+    fetch(`https://g-iv-back-end-production.up.railway.app/charities/${params.charityId}`)
     .then((r)=> r.json())
     .then((data)=>setcharityInfo(data))
   }, [params.charityId])
@@ -106,11 +106,11 @@ function handleCategoryChange(e){
        </Form.Group> */}
       <Form.Group controlId="formBasicName">
       <Form.Label>Donation Name</Form.Label>
-            <Form.Control type="text" placeholder="Donation"  style={{width:'60rem', marginTop: '10px'}} />
+            <Form.Control type="text" placeholder="Donation Name"  style={{width:'60rem', marginTop: '10px'}} />
        </Form.Group>
        <Form.Group controlId="formBasicImage">
        <Form.Label>Image</Form.Label>
-            <Form.Control type="file" placeholder="Donation Image" style={{width:'60rem',marginTop: '10px'}} />
+            <Form.Control type="text" placeholder="Donation Image" style={{width:'60rem',marginTop: '10px'}} />
        </Form.Group>
        <Form.Group controlId="formBasicDescription">
        <Form.Label>Description</Form.Label>

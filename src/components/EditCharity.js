@@ -50,7 +50,7 @@ function EditCharity({charities, onUpdateCharity}) {
             <form method="POST" className="mt-5" onSubmit={handleFormSubmission}>
             {/* handle image upload */}
             <div className="mb-4">
-                <input type="file" className="form-control" />
+                <input type="text" className="form-control" />
             </div>
 
             {/* handle title input */}

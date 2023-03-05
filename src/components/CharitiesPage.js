@@ -120,7 +120,7 @@ function handleFormSubmit(event) {
                                                  </Form.Group>
                                                 <Form.Group controlId="formBasicImage">
                                                          <Form.Label>Image</Form.Label>
-                                                         <Form.Control type="file" placeholder="Enter image"  />
+                                                         <Form.Control type="text" placeholder="Enter image"  />
                                                  </Form.Group>
                                                  <Form.Group controlId="formBasicYear">
                                                          <Form.Label>Year Established</Form.Label>
