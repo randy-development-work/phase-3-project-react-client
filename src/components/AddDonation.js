@@ -5,13 +5,13 @@ import { Header, Icon, Message } from 'semantic-ui-react';
 import Alert from '@mui/material/Button';
 
 
-const categoryOptions = [
-  { value: 'Cash', label: 'Cash' },
-  { value: 'Clothing', label: 'Clothing' },
-  { value: 'Electronics', label: 'Electronics' },
-  { value: 'Food', label: 'Food' },
-  { value: 'Household Items', label: 'Household Items' },
-];
+// const categoryOptions = [
+//   { value: 'Cash', label: 'Cash' },
+//   { value: 'Clothing', label: 'Clothing' },
+//   { value: 'Electronics', label: 'Electronics' },
+//   { value: 'Food', label: 'Food' },
+//   { value: 'Household Items', label: 'Household Items' },
+// ];
 
 const AddDonation = ({charitydata}) => {
   // navigator
@@ -27,6 +27,18 @@ const AddDonation = ({charitydata}) => {
   let params = useParams();
   const [charityInfo, setcharityInfo] = useState({})
   // console.log(params.charityId);
+
+  // categories usestate
+  const [categoryOptions, setCategoryOptions] = useState([])
+
+  // getting categories from server
+  useEffect(() => {
+      fetch("https://g-iv-back-end-production.up.railway.app/categories")
+      .then((r)=>r.json())
+      .then((data) => setCategoryOptions(data))
+  },[]);
+
+  console.log(categoryOptions);
 
   // capture data from server based on param and save it to state
   useEffect(() => {
@@ -94,8 +106,8 @@ function handleCategoryChange(e){
         <Form.Control as="select" value={selectedCategory} onChange={handleCategoryChange} style={{width:'60rem'}}>
           <option value="">Select Donation Category...</option>
           {categoryOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
+            <option key={option.name} value={option.name}>
+              {option.name}
             </option>
           ))}
         </Form.Control>
