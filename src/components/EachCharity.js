@@ -18,7 +18,7 @@ function EachCharity({charity}) {
 
     return (
         <Card
-        className='card-style '
+        className='card-style'
         style={{ width: "18rem", cursor: "pointer" }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
