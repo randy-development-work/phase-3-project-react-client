@@ -14,12 +14,13 @@ function EditCharity({charities, onUpdateCharity}) {
         .then((r)=> r.json())
         .then((data) => setEditData(data))
     }, [charityId])
+    // console.log(editData.image);
 
     const handleFormSubmission = (event) => {
         event.preventDefault();
 
         // set the request to the server
-        fetch(`https://g-iv-back-end-production.up.railway.app/charities/${charityId}`, {
+        fetch(`https://g-iv-back-end-production.up.railway.app/charities/${charityId}/edit`, {
             method: "PATCH",
             body: JSON.stringify(editData),
             headers: {
@@ -47,10 +48,13 @@ function EditCharity({charities, onUpdateCharity}) {
         <Fragment>
             <h3>Edit Charity</h3>
 
-            <form method="POST" className="mt-5" onSubmit={handleFormSubmission}>
+            <form method="PATCH" className="mt-5" onSubmit={handleFormSubmission}>
             {/* handle image upload */}
             <div className="mb-4">
-                <input type="text" className="form-control" />
+            <label htmlFor="individual-image" className="form-label">Charity image</label>
+                <input type="text" name="image" className="form-control" id="individual-image" 
+                value={editData?.image}
+                onChange={handleFormInput} />
             </div>
 
             {/* handle title input */}

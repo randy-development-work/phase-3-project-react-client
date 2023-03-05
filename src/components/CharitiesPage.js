@@ -25,7 +25,7 @@ useEffect(() => {fetch("https://g-iv-back-end-production.up.railway.app/charitie
             return setCharities(() => charitiesData)})
     }, [])
 
-    console.log(charities);
+    // console.log(charities);
 
     const onecharity = searched.map((charity) => {
         return (
