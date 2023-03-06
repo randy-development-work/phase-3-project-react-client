@@ -46,57 +46,108 @@ function EditCharity({charities, onUpdateCharity}) {
 
     return (
         <Fragment>
-            <h3>Edit Charity</h3>
+            <h3 style={{textAlign:'center',marginTop:'70px'}}>Edit Charity</h3>
+        <div>
+        <form
+  method="PATCH"
+  className="EditCharity-form"
+  style={{
+    width: "75%",
+    border: "1px solid #ccc",
+    padding: "20px",
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: "50px",
+    backgroundColor: "#f5f5f5",
+    borderRadius: "5px",
+    boxShadow: "0px 0px 10px 2px rgba(0, 0, 0, 0.1)",
+  }}
+  onSubmit={handleFormSubmission}
+>
+  {/* handle image upload */}
+  <label htmlFor="individual-image" className="form-label">
+    Charity image
+  </label>
+  <input
+    type="text"
+    name="image"
+    className="form-control"
+    id="individual-image"
+    value={editData?.image}
+    onChange={handleFormInput}
+    style={{ marginTop: "8px" }}
+  />
 
-            <form method="PATCH" className="mt-5" onSubmit={handleFormSubmission}>
-            {/* handle image upload */}
-            <div className="mb-4">
-            <label htmlFor="individual-image" className="form-label">Charity image</label>
-                <input type="text" name="image" className="form-control" id="individual-image" 
-                value={editData?.image}
-                onChange={handleFormInput} />
-            </div>
+  {/* handle title input */}
 
-            {/* handle title input */}
-            <div className="mb-4">
-                <label htmlFor="individual-name" className="form-label">Charity name</label>
-                <input type="text" name="name" className="form-control" id="individual-name" placeholder="Edit name"
-                    value={editData?.name}
-                    onChange={handleFormInput} />
-            </div>
+  <label htmlFor="individual-name" className="form-label">
+    Charity name
+  </label>
+  <input
+    type="text"
+    name="name"
+    className="form-control"
+    id="individual-name"
+    placeholder="Edit name"
+    value={editData?.name}
+    onChange={handleFormInput}
+    style={{ marginBottom: "15px" }}
+  />
 
-            {/* handle description */}
-            <div className="mb-4">
-                <label htmlFor="individual-description" className="form-label">Charity description</label>
-                <textarea name="description" className="form-control" id="individual-description" rows="5"
-                    value={editData?.description}
-                    onChange={handleFormInput}></textarea>
-            </div>
+  {/* handle description */}
 
+  <label htmlFor="individual-description" className="form-label">
+    Charity description
+  </label>
+  <textarea
+    name="description"
+    className="form-control"
+    id="individual-description"
+    rows="3"
+    value={editData?.description}
+    onChange={handleFormInput}
+    style={{ marginBottom: "15px" }}
+  ></textarea>
 
-            {/* handle location */}
-            <div className="mb-4">
-                <label htmlFor="individual-dob" className="form-label">Charity Location</label>
-                <input type="text" name="location" className="form-control" id="individual-dob"
-                    value={editData?.location}
-                    onChange={handleFormInput} />
-            </div>
+  {/* handle location */}
 
-            {/* handle Year Established */}
-            <div className="mb-4">
-                <label htmlFor="individual-doe" className="form-label">Year Established</label>
-                <input type="number" name="year_established" placeholder="yyyy" className="form-control" id="individual-dod"
-                    value={editData?.year_established}
-                    onChange={handleFormInput} />
-            </div>
+  <label htmlFor="individual-dob" className="form-label">
+    Charity Location
+  </label>
+  <input
+    type="text"
+    name="location"
+    className="form-control"
+    id="individual-dob"
+    value={editData?.location}
+    onChange={handleFormInput}
+    style={{ marginBottom: "15px" }}
+  />
 
-            <div className="mb-4">
-                <button type="submit" className="btn btn-primary">
-                    SAVE CHANGES
-                </button>
-            </div>
-        </form>
+  {/* handle Year Established */}
+
+  <label htmlFor="individual-doe" className="form-label">
+    Year Established
+  </label>
+  <input
+    type="number"
+    name="year_established"
+    placeholder="yyyy"
+    className="form-control"
+    id="individual-dod"
+    value={editData?.year_established}
+    onChange={handleFormInput}
+    style={{ marginBottom: "15px" }}
+  />
+
+  <button type="submit" className="btn btn-primary">
+    SAVE CHANGES
+  </button>
+</form>
+
+        </div>
         </Fragment>
+        
     )
 }
 
